@@ -20,12 +20,14 @@ paste bemenetek.txt kimenetek.txt | while IFS=$'\t' read -r n expected_output; d
 	expected_output=$(echo "$expected_output" | tr -d '\r\n')
     # Ellenőrizd, hogy a kapott eredmény megegyezik-e a várt kimenettel
     if [[ "$result" == "$expected_output" ]]; then
-      echo "$n: helyes"
+      echo "A kapott érték helyes az adott bemenetre: $n"
     else
-      echo "$n"
-	  echo "$result"
-	  echo "$expected_output"
+      echo "Bemenet: $n"
+	  echo "Kapott érték: $result"
+	  echo "Várt érték: $expected_output"
     fi
   fi
  done
+ echo "Kilépéshez nyomj meg egy gombot..."
+ read -p "Nyomj meg egy gombot, majd egy ENTER-t"
 
