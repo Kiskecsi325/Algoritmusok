@@ -17,7 +17,7 @@ paste bemenetek.txt kimenetek.txt | while IFS=$'\t' read -r n expected_output; d
   if [[ -n "$n" ]]; then
     # Futtasd a factorial_length.py programot és add át a bemeneti értéket
     result=$(python factorial_length.py <<< "$n" | tr -d '\r\n')
-	expected_output=$(echo "$expected_output" | tr -d '\r\n')
+	  expected_output=$(echo "$expected_output" | tr -d '\r\n')
     # Ellenőrizd, hogy a kapott eredmény megegyezik-e a várt kimenettel
     if [[ "$result" == "$expected_output" ]]; then
       echo "A kapott érték helyes az adott bemenetre: $n"
